@@ -5,9 +5,9 @@ var dataBarang = [
 ];
 
 
-
 function showBarang(){
   var listBarang = document.getElementById("list-barang");
+
   // clear list barang
   listBarang.innerHTML = "";
 
@@ -20,11 +20,20 @@ function showBarang(){
   }
 }
 
+var input = document.querySelector("input[name=barang]");
+
 function addBarang(){
-  var input = document.querySelector("input[name=barang]");
+  input;
   dataBarang.push(input.value);
+  input.value = ""
   showBarang();
 }
+
+input.addEventListener('keyup', (e) => {
+  if (e.keyCode === 13) {
+    addBarang();
+  }
+})
 
 function editBarang(id){
   var newBarang = prompt("Nama baru", dataBarang[id]);
